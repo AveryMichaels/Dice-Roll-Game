@@ -1,5 +1,6 @@
 # Dice Roll Game
 This is a Dice Roll Game that uses MVC framework.
+
 A random number between 1-6 is generated, and the user can bet on whether the number is odd/even and/or the range the number is in.
 
 # Inital Window
