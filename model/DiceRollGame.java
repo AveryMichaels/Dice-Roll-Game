@@ -24,14 +24,16 @@ public class DiceRollGame {
         balance = 100;
         amountBetOddEven = 0;
         amountBetRange = 0;
-        rangeGuess = "1-2";
         odd = true;
+        rangeGuess = "1-2";
         winOddEven = WinState.NA;
         winRange = WinState.NA;
     }
 
     public void start() {
         key = generateNewKey();
+        odd = true;
+        rangeGuess = "1-2";
     }
 
     private int generateNewKey() {
@@ -51,27 +53,55 @@ public class DiceRollGame {
             if (odd == true) {
                 switch (key) {
                     case 1:
+                        balance = balance + (amountBetOddEven * 2);
+                        winOddEven = WinState.WIN;
+                        break;
+                    case 2:
+                        balance = balance - amountBetOddEven;
+                        winOddEven = WinState.LOSE;
+                        break;
                     case 3:
+                        balance = balance + (amountBetOddEven * 2);
+                        winOddEven = WinState.WIN;
+                        break;
+                    case 4:
+                        balance = balance - amountBetOddEven;
+                        winOddEven = WinState.LOSE;
+                        break;
                     case 5:
                         balance = balance + (amountBetOddEven * 2);
                         winOddEven = WinState.WIN;
                         break;
-                    default:
+                    case 6:
                         balance = balance - amountBetOddEven;
                         winOddEven = WinState.LOSE;
                         break;
                 }
             } else {
                 switch (key) {
+                    case 1:
+                        balance = balance - amountBetOddEven;
+                        winOddEven = WinState.LOSE;
+                        break;
                     case 2:
-                    case 4:
-                    case 6:
                         balance = balance + (amountBetOddEven * 2);
                         winOddEven = WinState.WIN;
                         break;
-                    default:
+                    case 3:
                         balance = balance - amountBetOddEven;
                         winOddEven = WinState.LOSE;
+                        break;
+                    case 4:
+                        balance = balance + (amountBetOddEven * 2);
+                        winOddEven = WinState.WIN;
+                        break;
+                    case 5:
+                        balance = balance - amountBetOddEven;
+                        winOddEven = WinState.LOSE;
+                        break;
+                    case 6:
+                        balance = balance + (amountBetOddEven * 2);
+                        winOddEven = WinState.WIN;
                         break;
                 }
             }
